@@ -42,3 +42,17 @@ gem 'spring',        group: :development
 #Tweet Stream
 gem 'tweetstream'
 
+#Elastic Search Dependencies
+gem 'elasticsearch-rails'
+gem 'elasticsearch-model'
+gem 'elasticsearch-persistence', require: 'elasticsearch/persistence/model'
+
+
+#General BootStrap
+gem 'bootstrap-sass'
+
+#Google Maps
+gem 'gmaps4rails'
+
+gem 'json'
+

@@ -29,8 +29,20 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     arel (5.0.1.20140414130214)
+    autoprefixer-rails (6.0.2)
+      execjs
+      json
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
+    bootstrap-sass (3.3.5)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.2.19)
     buftok (0.2.0)
     builder (3.2.2)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -40,8 +52,30 @@ GEM
     coffee-script-source (1.9.1.1)
     cookiejar (0.3.2)
     daemons (1.2.3)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
+    elasticsearch (1.0.12)
+      elasticsearch-api (= 1.0.12)
+      elasticsearch-transport (= 1.0.12)
+    elasticsearch-api (1.0.12)
+      multi_json
+    elasticsearch-model (0.1.7)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-persistence (0.1.7)
+      activemodel (> 3)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      elasticsearch-model (>= 0.1)
+      hashie
+      virtus
+    elasticsearch-rails (0.1.7)
+    elasticsearch-transport (1.0.12)
+      faraday
+      multi_json
     em-http-request (1.1.2)
       addressable (>= 2.3.4)
       cookiejar
@@ -61,6 +95,8 @@ GEM
     execjs (2.6.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    gmaps4rails (2.1.2)
+    hashie (3.4.2)
     hike (1.2.3)
     http (0.9.6)
       addressable (~> 2.3)
@@ -72,6 +108,7 @@ GEM
     http-form_data (1.0.1)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
+    ice_nine (0.11.1)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -165,14 +202,25 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
+    virtus (1.0.5)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
   coffee-rails (~> 4.0.0)
+  elasticsearch-model
+  elasticsearch-persistence
+  elasticsearch-rails
+  gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
+  json
   mysql2 (~> 0.3.18)
   rails (= 4.1.5)
   sass-rails (~> 4.0.3)
