@@ -21,7 +21,8 @@ class Tweet
 
 
   attribute :text, String
-  attribute :coordinates, Hash , mapping: {type: 'object', properties: {coordinates: {type: 'geo_point'}, type: {type: 'string'}}}
+  attribute :coordinates, Hash , mapping: {type: 'object', properties: {coordinates: {type: 'geo_point',  geohash: true,
+                                          geohash_prefix: true,  geohash_precision: 10}, type: {type: 'string'}}}
   attribute :entities, Hash, mapping: {type: 'object'}
 
 
