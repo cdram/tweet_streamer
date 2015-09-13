@@ -55,4 +55,5 @@ gem 'bootstrap-sass'
 gem 'gmaps4rails'
 
 gem 'json'
+gem 'hashie'
 

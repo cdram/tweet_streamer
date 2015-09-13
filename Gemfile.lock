@@ -218,6 +218,7 @@ DEPENDENCIES
   elasticsearch-persistence
   elasticsearch-rails
   gmaps4rails
+  hashie
   jbuilder (~> 2.0)
   jquery-rails
   json

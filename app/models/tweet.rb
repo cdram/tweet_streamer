@@ -26,5 +26,26 @@ class Tweet
   attribute :entities, Hash, mapping: {type: 'object'}
 
 
+  def self.nearby(lat, lng, distance, unit = 'mi')
+    query = {
+        :query => {
+            :filtered => {
+                :filter => {
+                    :geohash_cell => {
+                        :coordinates => {
+                            :lat =>  lat,
+                            :lon => lng
+                        },
+                        :neighbors =>  true,
+                        :precision => distance.to_s+unit
+                    }
+                }, :_cache => true
+            }
+        }
+    }
+
+    response = Hashie::Mash.new (Tweet.search query).response
+    response
+  end
 
 end
