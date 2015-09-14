@@ -41,10 +41,14 @@ class Tweet
                     }
                 }, :_cache => true
             }
-        }
+        },
+        :sort => { :created_at => { :order => 'desc' }}
     }
 
     response = Hashie::Mash.new (Tweet.search query).response
+    response.hits.hits.each do |tweet|
+      p tweet._source.text   + "  " + tweet._source.created_at
+    end
     response
   end
 
