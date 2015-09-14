@@ -26,7 +26,7 @@ class Tweet
   attribute :entities, Hash, mapping: {type: 'object'}
 
 
-  def self.nearby(lat, lng, distance, unit = 'mi')
+  def self.nearby(lat, lng, distance, unit = 'mi', hashtags = [])
     query = {
         :query => {
             :filtered => {
@@ -40,10 +40,25 @@ class Tweet
                         :precision => distance.to_s+unit
                     }
                 }, :_cache => true
-            }
+            },
         },
         :sort => { :created_at => { :order => 'desc' }}
     }
+
+    unless hashtags.empty?
+      query[:query][:filtered][:query] = {
+          :bool => {
+              :must => [
+                  {
+                      :query_string => {
+                          :default_field => 'tweet.entities.hashtags.text',
+                          :query => hashtags.join(' ')
+                      }
+                  }
+              ]
+          }
+      }
+    end
 
     response = Hashie::Mash.new (Tweet.search query).response
     response.hits.hits.each do |tweet|
