@@ -38,9 +38,9 @@
               Radius (in km)
             </div>
             <% unless params[:search].nil? or  params[:search][:radius].nil?%>
-                <%= f.input :radius,  placeholder: 'Radius in Miles', input_html: { value: params[:search][:radius], class: 'form-control',min:1, step: 1, type: 'number', :'data-rule-required' => true}, label: false%>
+                <%= f.input :radius,  placeholder: 'Radius in KMs', input_html: { value: params[:search][:radius], class: 'form-control',min:1, step: 1, type: 'number', :'data-rule-required' => true}, label: false%>
             <%else %>
-                <%= f.input :radius,  placeholder: 'Radius in Miles', input_html: {class: 'form-control',min:1, step: 1, type: 'number', :'data-rule-required' => true}, label: false%>
+                <%= f.input :radius,  placeholder: 'Radius in KMs', input_html: {class: 'form-control',min:1, step: 1, type: 'number', :'data-rule-required' => true}, label: false%>
             <% end %>
 
           </div>
