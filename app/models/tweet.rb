@@ -25,6 +25,8 @@ class Tweet
                                           geohash_prefix: true,  geohash_precision: 10}, type: {type: 'string'}}}
   attribute :entities, Hash, mapping: {type: 'object'}
 
+  validates :text, presence: true
+
 
   def self.nearby(lat, lng, distance, unit = 'mi', hashtags = [])
     query = {
