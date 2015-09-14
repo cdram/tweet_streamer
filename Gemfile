@@ -59,4 +59,5 @@ gem 'hashie'
 
 #Simple form for rails
 gem 'simple_form'
+gem 'underscore-rails'
 
