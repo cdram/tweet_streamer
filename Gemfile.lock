@@ -126,6 +126,7 @@ GEM
     minitest (5.8.0)
     multi_json (1.11.2)
     multipart-post (2.0.0)
+    mysql2 (0.3.18)
     naught (1.1.0)
     pg (0.18.3)
     polyglot (0.3.5)
@@ -238,6 +239,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   json
+  mysql2 (~> 0.3.18)
   pg
   rails (= 4.1.5)
   rspec-rails (~> 3.0.0)
