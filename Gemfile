@@ -57,3 +57,6 @@ gem 'gmaps4rails'
 gem 'json'
 gem 'hashie'
 
+#Simple form for rails
+gem 'simple_form'
+

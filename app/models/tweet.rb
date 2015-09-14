@@ -28,6 +28,7 @@ class Tweet
 
   def self.nearby(lat, lng, distance, unit = 'mi', hashtags = [])
     query = {
+        :size => 250,
         :query => {
             :filtered => {
                 :filter => {

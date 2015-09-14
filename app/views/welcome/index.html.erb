@@ -1,4 +1,56 @@
-<h2>Welcome to Tweet Streamer</h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
+<%= simple_form_for :search,  url: tweets_path , :method => :get, :remote => true, :validate=>true,  :html => {  :class => 'form form-vertical validate-form', :style => 'margin-bottom: 0;'} do |f| %>
+              <div class="row">
+                  <div class="clearfix">
+                    <div class='col-sm-3'>
+                      <div class='box'>
+                        <div class='lead'>
+                          <i class='icon-map-marker contrast'></i>
+                          Latitude
+                        </div>
+                        <%= f.input :latitude,  placeholder: 'Latitude', input_html: { class: 'form-control', :'data-rule-required' => true, required: true}, label: false, as: :float %>
+                      </div>
+                    </div>
+                  <div class='col-sm-3'>
+                    <div class='box'>
+                      <div class='lead'>
+                        <i class='icon-map-marker contrast'></i>
+                        Longitude
+                      </div>
+                      <%= f.input :longitude,  placeholder: 'Longitude', input_html: { class: 'form-control', :'data-rule-required' => true}, label: false, as: :float %>
+                    </div>
+                  </div>
+                    <div class='col-sm-3'>
+                      <div class='box'>
+                        <div class='lead'>
+                          <i class='icon-map-marker contrast'></i>
+                          Radius
+                        </div>
+                        <%= f.input :radius,  placeholder: 'Radius in Miles', input_html: { class: 'form-control', :'data-rule-required' => true}, label: false,  as: :float%>
+                      </div>
+                    </div>
+                </div>
+                <div class="clearfix">
+                  <div class='col-sm-7'>
+                    <div class='box'>
+                      <div class='lead'>
+                        <i class='icon-map-marker contrast'></i>
+                        Hashtags
+                      </div>
+                      <%= f.input :hashtags,  placeholder: 'Hashtags (comma delimited)', input_html: { class: 'form-control'}, label: false,  as: :text %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    <%= f.submit 'Search', input_html: {class: 'btn btn-danger btn-block btn-lg'}%>
+<% end %>
+
+
+<% if @tweets %>
+    <tbody>
+    <% @tweets.each do |lkup| %>
+        <tr >
+          <td><input type="text" class="lkupcode" value=<%= lkup %> /></td>
+        </tr>
+    <% end %>
+    </tbody>
+<% end %>
